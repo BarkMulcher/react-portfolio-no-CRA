@@ -1,0 +1,58 @@
+@media only screen and (max-width: 1250px) {
+    .animals {
+      margin-right: 7%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .animals {
+      margin-right: 10%;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .space-left {
+      margin-left: 10px;
+    }
+    #login-card {
+      width: 70%;
+    }
+  }
+  
+  @media only screen and (max-width: 720px) {
+    .sr-root {
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 48px 20px;
+      min-width: 320px;
+    }
+    .animalcardsearch {
+      max-width: 100%;
+    }
+    #login-card {
+      width: 80%;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .animals {
+      margin: auto;
+      clear: both;
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .animal-card {
+      width: 100%;
+    }
+    .animal {
+      height: 200px;
+      width: 600px;
+    }
+    footer {
+      margin-left: -35px;
+    }
+    .selected-animal {
+      width: 100%;
+    }
+    #login-card {
+      width: 90%;
+    }
+  }
