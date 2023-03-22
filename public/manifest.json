@@ -9,14 +9,14 @@
       "type": "image/x-icon"
     },
     {
-      "src": "steve.png",
+      "src": "steve.jpg",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "128x128"
     },
     {
-      "src": "steve.png",
+      "src": "steve.jpg",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "128x128"
     }
   ],
   "start_url": ".",

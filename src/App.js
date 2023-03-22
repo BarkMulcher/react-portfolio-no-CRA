@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 // import "./styles/styles.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import About from './components/pages/About';
-import Home from './components/pages/Home';
-import Portfolio from './components/pages/Contact';
-import Contact from './components/pages/Contact';
-
-
+import Header from '../src/components/Header';
+import About from '../src/components/pages/About';
+// import Portfolio from '../src/components/pages/Portfolio';
+import Contact from '../src/components/pages/Contact';
+import Loading from '../src/components/LoadingPage';
+const Portfolio = React.lazy(() => import('./components/pages/Portfolio'));
 
 export default function App() {
-    return(
-        <Router>
-            <div className='flex-column justify-flex-start min-100-vh'>
-                <header>
-                    <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
-                        <Header />
-                    </nav>
-                </header>
-            </div>
-        </Router>
-    );
+  return (
+    <>
+      <Loading />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Portfolio />
+        </Suspense>
+    </>
+  );
 }
