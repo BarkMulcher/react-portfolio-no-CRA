@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Navbar, Nav, NavDropdown, Container} from 'react-bootstrap';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { Navbar, Nav, Container} from 'react-bootstrap';
 
 
 export default function Header({ currentPage, pageChange }) {
@@ -13,19 +13,19 @@ export default function Header({ currentPage, pageChange }) {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse>
-                        <Nav classname='me-auto my-2 my-lg-0'>
-                            <Link classname='nav-link' to='/'>
+                        <Nav className='me-auto my-2 my-lg-0'>
+                            <CustomLink className='nav-link' to='/'>
                                 Home
-                            </Link>
-                            <Link className='nav-link' to='/about'>
+                            </CustomLink>
+                            <CustomLink className='nav-link' to='/about'>
                                 About
-                            </Link>
-                            <Link className='nav-link' to='/portfolio'>
+                            </CustomLink>
+                            <CustomLink className='nav-link' to='/portfolio'>
                                 Portfolio
-                            </Link>
-                            <Link className='nav-link' to=''>
-                                Resume
-                            </Link>
+                            </CustomLink>
+                            <CustomLink className='nav-link' to='/contact'>
+                                Contact
+                            </CustomLink>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
@@ -34,4 +34,15 @@ export default function Header({ currentPage, pageChange }) {
     );
 }
 
-// className='col-md-1' src={planet_express_logo_by_pencilshade}
+function CustomLink({ to, children, ...props }) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({ path: resolvedPath.pathname, end: true})
+
+    return (
+        <ul className={isActive ? "active" : ''}>
+            <Link to={to} {...props}>
+                {children}
+            </Link>
+        </ul>
+    )
+}

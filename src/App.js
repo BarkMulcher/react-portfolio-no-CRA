@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
-// import "./styles/styles.css";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import "./styles/style.css";
+import { Routes, Route } from 'react-router-dom';
 import Header from '../src/components/Header';
 import About from '../src/components/pages/About';
 // import Portfolio from '../src/components/pages/Portfolio';
@@ -12,9 +12,17 @@ export default function App() {
   return (
     <>
       <Loading />
-        <Suspense fallback={<div>Loading...</div>}>
-          <Portfolio />
-        </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+      <div>
+        <Header />
+      </div>
+      <Routes>
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/portfolio' element={<Portfolio />} />
+      </Routes>
+        <Portfolio />
+      </Suspense>
     </>
   );
 }

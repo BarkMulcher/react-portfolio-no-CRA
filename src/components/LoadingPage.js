@@ -11,7 +11,7 @@ export default function Loading() {
 
         timeLine.to(loadingBar.current, {
             width: '100%',
-            duration: 4,
+            duration: 10,
             ease: 'expo. inOut',
         });
 
